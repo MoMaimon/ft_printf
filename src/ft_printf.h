@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   main.c                                            :+:      :+:    :+:    */
+/*   ft_printf.h                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/29 21:04:48 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/09/29 22:39:22 by mabd-elh        ###   ########.fr        */
+/*   Created: 2026/09/29 20:25:00 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 18:34:56 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include "libft.h"
+# include <unistd.h>
+# include <stdarg.h>
 
-int	main(void)
-{
-	int		num = 14;
-	int		width = 7;
-	char	*s = "Hello world";
+int		ft_printf(const char *, ...);
+void	ft_putadd(void *ptr);
 
-	printf("%p\n", &num);
-	printf("0x%lx\n", (long) & num);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:52:21 by mabd-elh          #+#    #+#             */
-/*   Updated: 2026/09/29 02:05:28 by mabd-elh         ###   ########.fr       */
+/*   Updated: 2026/10/01 19:03:45 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*get_word(char *s, char c)
 {
 	char	*sep;
 	char	*str;
-	int		len;
+	size_t	len;
 
 	sep = ft_strchr(s, c);
 	if (sep)

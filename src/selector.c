@@ -1,27 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_strchr.c                                       :+:      :+:    :+:    */
+/*   selector.c                                        :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/23 12:09:01 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/10/01 14:46:35 by mabd-elh        ###   ########.fr        */
+/*   Created: 2026/10/07 22:15:36 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 22:15:36 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char) c)
-			return ((char *) & (s[i]));
-		i++;
-	}
-	if (c == 0)
-		return ((char *) & (s[i]));
-	return (0);
-}
+#include "ft_printf.h"

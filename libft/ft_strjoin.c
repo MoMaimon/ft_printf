@@ -6,7 +6,7 @@
 /*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:14:13 by mabd-elh          #+#    #+#             */
-/*   Updated: 2026/09/29 02:22:04 by mabd-elh         ###   ########.fr       */
+/*   Updated: 2026/10/01 18:27:55 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	int		i;
-	int		s1_len;
-	int		s2_len;
+	size_t	i;
+	size_t	s1_len;
+	size_t	s2_len;
 
 	i = 0;
 	s1_len = ft_strlen(s1);

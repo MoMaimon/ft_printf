@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/23 12:01:54 by mabd-elh          #+#    #+#             */
-/*   Updated: 2026/09/28 23:38:05 by mabd-elh         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_memmove.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/23 12:01:54 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/09/30 21:33:19 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = n - 1;
 		while (i >= 0)
 		{
-			((char *) dest)[i] = ((char *) src)[i];
+			((unsigned char *) dest)[i] = ((unsigned char *) src)[i];
 			i--;
 		}
 	}

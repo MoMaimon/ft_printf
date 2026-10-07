@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_putadd.c                                       :+:      :+:    :+:    */
+/*   ft_strindx.c                                      :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/29 22:35:45 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/09/29 22:45:29 by mabd-elh        ###   ########.fr        */
+/*   Created: 2026/10/07 19:43:21 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 20:47:10 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*dtox(long)
+#include "libft.h"
 
-void	ft_putadd(void *ptr)
+size_t	ft_strindx(const char *str, char *set)
 {
-	long	add;
+	size_t	i;
+	size_t	j;
 
-	add = (long) ptr;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (set[j])
+		{
+			if (str[i] == set[j])
+				return (i + 1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

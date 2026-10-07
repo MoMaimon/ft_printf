@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_printf.h                                       :+:      :+:    :+:    */
+/*   ft_putadd.c                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/29 20:25:00 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/09/29 22:36:20 by mabd-elh        ###   ########.fr        */
+/*   Created: 2026/09/29 22:35:45 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 18:36:25 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int		ft_printf(const char *, ...);
-void	ft_putadd(void *ptr);
+void	ft_putadd(void *ptr)
+{
+	long	add;
 
-#endif
+	add = (long) ptr;
+}

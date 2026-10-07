@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_strrchr.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/23 14:37:51 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/09/26 17:40:17 by mabd-elh        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/23 14:37:51 by mabd-elh          #+#    #+#             */
+/*   Updated: 2026/10/01 18:54:29 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
-	if (c >= 256)
-		c -= 256;
-	i = ft_strlen(s);
-	while (i >= 0)
+	i = ft_strlen(s) + 1;
+	while (i > 0)
 	{
-		if (s[i] == c)
-			return ((char *) & (s[i]));
+		if (s[i - 1] == (char) c)
+			return ((char *) & (s[i - 1]));
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/26 21:19:05 by mabd-elh          #+#    #+#             */
-/*   Updated: 2026/09/29 04:34:13 by mabd-elh         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_substr.c                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/26 21:19:05 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 21:32:08 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		min_len = min(len, ft_strlen(&s[start]));
 	else
 		min_len = 0;
+	if (!min_len)
+		return (NULL);
 	str = malloc((min_len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
