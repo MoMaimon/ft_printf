@@ -9,7 +9,10 @@ SRC_DIR = src
 BUILD_DIR = build
 LIBFT_DIR = libft
 
-SRCS =  $(SRC_DIR)/ft_printf.c
+SRCS =  $(SRC_DIR)/ft_printf.c \
+		${SRC_DIR}/selector.c \
+		${SRC_DIR}/print_char.c \
+		${SRC_DIR}/print_str.c \
 
 
 MAIN = $(SRC_DIR)/main.c

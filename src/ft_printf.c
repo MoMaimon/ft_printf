@@ -6,7 +6,7 @@
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/29 20:24:38 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/10/07 22:13:54 by mabd-elh        ###   ########.fr        */
+/*   Updated: 2026/10/08 00:01:49 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static t_list	*tokenize(const char *str)
 	i = 0;
 	if (!ft_strindx(str, "%"))
 		return (ft_lstnew((void *) ft_strdup(str)));
+	if (!get_conv(&lst, &str[i], &i))
+		return (NULL);
 	while (ft_strrchr(&str[i], '%'))
 	{
 		if (!get_token(&lst, &str[i], &i))
@@ -101,6 +103,9 @@ int	ft_printf(const char *str, ...)
 		ft_lstclear(&lst, free);
 		return (-1);
 	}
+	// ft_lstiter(lst, print_all);
+	if (!va_lstiter(lst, selector, args))
+		return (-1);
 	ft_lstiter(lst, print_all);
 	va_end(args);
 	ft_lstclear(&lst, free);

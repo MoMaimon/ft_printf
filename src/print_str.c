@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_putadd.c                                       :+:      :+:    :+:    */
+/*   print_str.c                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/29 22:35:45 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/10/07 18:36:25 by mabd-elh        ###   ########.fr        */
+/*   Created: 2026/10/07 23:34:39 by mabd-elh         #+#    #+#              */
+/*   Updated: 2026/10/07 23:56:54 by mabd-elh        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putadd(void *ptr)
+char	*print_str(char *str, char *arg)
 {
-	long	add;
+	char	*str2;
 
-	add = (long) ptr;
+	str2 = ft_strdup(arg);
+	free(str);
+	return (str2);
 }
