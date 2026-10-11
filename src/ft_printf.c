@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_printf.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/29 20:24:38 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/10/08 00:01:49 by mabd-elh        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/29 20:24:38 by mabd-elh          #+#    #+#             */
+/*   Updated: 2026/10/11 19:22:39 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	g_bytes;
-
-static void	print_all(void *content)
+static int	print_all(void *content, int ischar)
 {
-	static int	i;
+	size_t	len;
 
-	g_bytes += ft_strlen((char *) content);
-	ft_putstr_fd("[Node:  ", 1);
-	ft_putnbr_fd(i++, 1);
-	ft_putstr_fd("] ", 1);
-	ft_putendl_fd((char *) content, 1);
+	len = ft_strlen((char *) content);
+	if (ischar)
+	{
+		len = 1;
+		ft_putchar_fd(((char *) content)[0], 1);
+	}
+	else
+		ft_putstr_fd((char *) content, 1);
+	return (len);
 }
 
 static int	get_conv(t_list **lst, const char *str, size_t *i)
@@ -31,6 +33,8 @@ static int	get_conv(t_list **lst, const char *str, size_t *i)
 	size_t	offset;
 	t_list	*node;
 
+	if (str[0] != '%')
+		return (1);
 	offset = ft_strindx(&str[1], "cspdiuxX%");
 	if (!offset)
 		return (0);
@@ -51,6 +55,8 @@ static int	get_token(t_list **lst, const char *str, size_t *i)
 	size_t	offset;
 	t_list	*node;
 
+	if (str[0] == '%')
+		return (1);
 	offset = ft_strindx(str, "%");
 	if (!offset)
 		offset = ft_strlen(str) + 1;
@@ -75,18 +81,18 @@ static t_list	*tokenize(const char *str)
 	if (!ft_strindx(str, "%"))
 		return (ft_lstnew((void *) ft_strdup(str)));
 	if (!get_conv(&lst, &str[i], &i))
-		return (NULL);
+		return (clr_null(&lst));
 	while (ft_strrchr(&str[i], '%'))
 	{
 		if (!get_token(&lst, &str[i], &i))
-			return (NULL);
+			return (clr_null(&lst));
 		if (!get_conv(&lst, &str[i], &i))
-			return (NULL);
+			return (clr_null(&lst));
 	}
 	if (str[i])
 	{
 		if (!get_token(&lst, &str[i], &i))
-			return (NULL);
+			return (clr_null(&lst));
 	}
 	return (lst);
 }
@@ -95,19 +101,16 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	t_list	*lst;
+	int		bytes;
 
 	va_start(args, str);
 	lst = tokenize(str);
 	if (!lst)
-	{
-		ft_lstclear(&lst, free);
 		return (-1);
-	}
-	// ft_lstiter(lst, print_all);
 	if (!va_lstiter(lst, selector, args))
 		return (-1);
-	ft_lstiter(lst, print_all);
+	bytes = print_iter(lst, print_all);
 	va_end(args);
 	ft_lstclear(&lst, free);
-	return (g_bytes);
+	return (bytes);
 }

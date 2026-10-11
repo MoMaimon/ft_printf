@@ -13,6 +13,12 @@ SRCS =  $(SRC_DIR)/ft_printf.c \
 		${SRC_DIR}/selector.c \
 		${SRC_DIR}/print_char.c \
 		${SRC_DIR}/print_str.c \
+		${SRC_DIR}/print_ptr.c \
+		${SRC_DIR}/print_hex.c \
+		${SRC_DIR}/print_mod.c \
+		${SRC_DIR}/print_un.c \
+		${SRC_DIR}/print_int.c \
+		${SRC_DIR}/ft_dtox.c \
 
 
 MAIN = $(SRC_DIR)/main.c
@@ -33,8 +39,8 @@ $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR)
 
 test: $(NAME)
-	$(CC) $(CFLAGS) $(SRC_DIR)/main.c $(NAME) -o $(TEST_EXEC)
-	./$(TEST_EXEC)
+	$(CC) -g $(SRC_DIR)/main.c $(NAME) libft/libft.a libftprintf.a -o $(TEST_EXEC)
+	./$(TEST_EXEC) | cat -e
 
 clean:
 	rm -rf $(BUILD_DIR)

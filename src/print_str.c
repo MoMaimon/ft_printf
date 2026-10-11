@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   print_str.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: mabd-elh <mabd-elh@student.42amman.com>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/07 23:34:39 by mabd-elh         #+#    #+#              */
-/*   Updated: 2026/10/07 23:56:54 by mabd-elh        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/07 23:34:39 by mabd-elh          #+#    #+#             */
+/*   Updated: 2026/10/11 19:35:37 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ char	*print_str(char *str, char *arg)
 {
 	char	*str2;
 
-	str2 = ft_strdup(arg);
+	if (ft_strlen(str) != 2)
+		return (NULL);
 	free(str);
+	if (!arg)
+		return (ft_strdup("(null)"));
+	str2 = ft_strdup(arg);
 	return (str2);
 }
