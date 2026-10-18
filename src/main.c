@@ -6,7 +6,7 @@
 /*   By: mabd-elh <mabd-elh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 21:04:48 by mabd-elh          #+#    #+#             */
-/*   Updated: 2026/10/11 19:12:08 by mabd-elh         ###   ########.fr       */
+/*   Updated: 2026/10/18 19:22:02 by mabd-elh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	main(void)
 {
-	char	*str = "";
-	int ret1, ret2;
-	// printf("%s | %s\n", str[2], str[1]);
-	ret1 = printf(" %%%% \n");
-	ret2 = ft_printf(" %%%% \n");
-	printf("ret1: %i | ret2: %i", ret1, ret2);
+	char	*str = "%///// %";
+	int		ret1, ret2;
+
+	ret1 = printf(str, 123);
+	// ret2 = ft_printf("%j", "hi");
+	printf("\nret1: %i", ret1);
 }
 
 // int main(void)
